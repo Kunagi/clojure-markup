@@ -8,7 +8,7 @@ Markup data can be rendered as Markdown and HTML.
 
 Add the following dependency to your `deps.edn` file:
 
-    io.github.clojure/tools.build {:git/sha "15ac88f"}
+    io.github.clojure/tools.build {:git/sha "04481c4"}
 
 ## License
 
