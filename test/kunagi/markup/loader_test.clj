@@ -32,9 +32,23 @@
 
   (testing "nested elements"
     (is (= '({:tag :parent
-             :children ("parent"
+              :children ("parent"
                          {:tag      :child
                           :children ("child")})})
-             (sut/load '([:parent
-                                     "parent"
-                                     [:child "child"]]))))))
+           (sut/load '([:parent
+                        "parent"
+                        [:child "child"]])))))
+
+  (testing "sections"
+    (is (= '({:tag :section
+              :title "Title"
+              :section-depth 1
+              :children ({:tag :section
+                          :title "Subtitle"
+                          :section-depth 2
+                          :children ("content")})})
+           (sut/load '([:section
+                        {:title "Title"}
+                        [:section
+                         {:title "Subtitle"}
+                         "content"]]))))))
